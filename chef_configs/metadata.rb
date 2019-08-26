@@ -1,9 +1,9 @@
-name 'configurations'
+name 'chef_configs'
 maintainer 'The Authors'
 maintainer_email 'you@example.com'
 license 'All Rights Reserved'
-description 'Installs/Configures configurations'
-long_description 'Installs/Configures configurations'
+description 'Installs/Configures chef_configs'
+long_description 'Installs/Configures chef_configs'
 version '0.1.0'
 chef_version '>= 13.0'
 
@@ -11,10 +11,10 @@ chef_version '>= 13.0'
 # tracked.  A `View Issues` link will be displayed on this cookbook's page when
 # uploaded to a Supermarket.
 #
-# issues_url 'https://github.com/<insert_org_here>/configurations/issues'
+# issues_url 'https://github.com/<insert_org_here>/chef_configs/issues'
 
 # The `source_url` points to the development repository for this cookbook.  A
 # `View Source` link will be displayed on this cookbook's page when uploaded to
 # a Supermarket.
 #
-# source_url 'https://github.com/<insert_org_here>/configurations'
+# source_url 'https://github.com/<insert_org_here>/chef_configs'
