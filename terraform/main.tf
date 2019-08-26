@@ -1,13 +1,13 @@
 provider "aws" {
-  access_key = ""
-  secret_key = ""
-  region     = "us-east-2"
+  access_key = "${var.access_key}"
+  secret_key = "${var.secret_key}"
+  region     = "${var.region}"
 }
 
 resource "aws_security_group" "allowhttp" {
   name        = "test"
   description = "Allow  inbound traffic"
-  vpc_id      = "vpc-58aaa230"
+  vpc_id      = "${var.vpc_id}"
 
   ingress {
     # TLS (change to whatever ports you need)
@@ -47,7 +47,19 @@ resource "aws_security_group" "allowhttp" {
 }
 
 resource "aws_instance" "example" {
-  ami           = "ami-0d8f6eb4f641ef691"
-  instance_type = "t2.micro"
+  ami           = "${var.ami}"
+  instance_type = "${var.instance_type}"
   vpc_security_group_ids = ["${aws_security_group.allowhttp.id}"]
+
+  provisioner "chef" {
+    environment     = "${var.chef_env}"
+    run_list        = "${var.run_lists}"
+    server_url      = "${var.chef_url}"
+    recreate_client = true
+    user_name       = "${var.chef_user}"
+    user_key        = "${file(var.chef_key)}"
+    version         = "13.6.0"
+    # If you have a self signed cert on your chef server change this to :verify_none
+    ssl_verify_mode = ":verify_none"
+  }
 }

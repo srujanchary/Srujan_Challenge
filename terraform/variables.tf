@@ -1,0 +1,11 @@
+variable "access_key" {}
+variable "secret_key" {}
+variable "region" {}
+variable "vpc_id" {}
+variable "ami" {}
+variable "instance_type" {}
+variable "chef_env" {}
+variable "run_lists" {}
+variable "chef_url" {}
+variable "chef_user" {}
+variable "chef_key" {}
